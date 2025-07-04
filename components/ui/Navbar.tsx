@@ -7,7 +7,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className='w-full h-20 flex justify-evenly items-center bg-gray-900 backdrop-blur-md text-white border-gray-800 border-2 fixed top-0 left-0'>
+            <div className='w-full h-20 flex justify-evenly items-center bg-gray-950  text-white border-gray-800 border-2 '>
                 <h1 className='text-4xl font-bold'>KaizokuDex</h1>
                 <div className='text-2xl font-medium text-white flex justify-evenly items-center gap-10 w-1/2'>
                     <h1>AI</h1>
