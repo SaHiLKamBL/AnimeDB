@@ -6,20 +6,18 @@ import Cardsection from '@/components/ui/Cardsection'
 
 const page = () => {
   return (
-    <div className='w-full bg-gray-950   overflow-x-clip'>
+    <>
+    <div className='w-full min-h-screen  bg-gray-950 overflow-y-clip overflow-x-clip'>
         <Navbar/> 
       <br />
       <br />
             <Banner/>
-             <SearchBar/>
              <br />
              <br />
              <Cardsection/>
-         
 
-
-        
     </div>
+    </>
   )
 }
 

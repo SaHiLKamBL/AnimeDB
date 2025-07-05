@@ -11,7 +11,7 @@ const Navbar = () => {
                 <h1 className='text-4xl font-bold'>KaizokuDex</h1>
                 <div className='text-2xl font-medium text-white flex justify-evenly items-center gap-10 w-1/2'>
                     <h1>AI</h1>
-                    <h1>Character</h1>
+                    <h1>Search</h1>
                     <h1>News</h1>
                     <h1>About</h1>
                     <h1>Recommdation</h1>
