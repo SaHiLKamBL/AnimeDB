@@ -12,6 +12,7 @@ import {
   PaginationPrevious,
   PaginationNext,
 } from "@/components/ui/pagination"
+import Loader from './Loader'
 
 interface TitleObject {
   type: string
@@ -63,12 +64,15 @@ const Cardsection = () => {
   }, [page])
 
   return (
-    <div className="px-5 pb-10">
+  <div className="px-5 pb-10">
+    
+    {/* ✅ Show loader above the grid */}
+    {loading && <Loader />}
 
+    {/* ✅ Show cards only if not loading */}
+    {!loading && (
       <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
-        {loading ? (
-          <p className="text-white">Loading...</p>
-        ) : Anidata.length === 0 ? (
+        {Anidata.length === 0 ? (
           <p className="text-white">No data available.</p>
         ) : (
           Anidata.map((anime) => {
@@ -95,7 +99,10 @@ const Cardsection = () => {
           })
         )}
       </div>
+    )}
 
+    {/* ✅ Pagination (also only shown when not loading) */}
+    {!loading && (
       <div className="flex justify-center my-6">
         <Pagination>
           <PaginationContent>
@@ -118,8 +125,9 @@ const Cardsection = () => {
           </PaginationContent>
         </Pagination>
       </div>
-    </div>
-  )
+    )}
+  </div>
+)
 }
 
 export default Cardsection
