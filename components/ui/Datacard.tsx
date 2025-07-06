@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import { useEffect,useState,useRef } from 'react';
 
 interface DatacardProps {
   id: number;
@@ -24,9 +25,44 @@ const Datacard: React.FC<DatacardProps> = ({
   rank,
   genres,
 }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const handleMove = (e: MouseEvent) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -20;
+      const rotateY = ((x - centerX) / centerX) * 20;
+
+      card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    };
+
+    const reset = () => {
+      card.style.transform = `rotateX(0deg) rotateY(0deg)`;
+    };
+
+    card.addEventListener('mousemove', handleMove);
+    card.addEventListener('mouseleave', reset);
+
+    return () => {
+      card.removeEventListener('mousemove', handleMove);
+      card.removeEventListener('mouseleave', reset);
+    };
+  }, []);
   return (
-    <div className='w-full max-w-[21.52vw] h-[31.15vh] text-blue-100 px-2 border border-gray-700 rounded-2xl flex justify-evenly gap-5 items-center'>
-      <img
+   <div
+  className='tilt-card w-full max-w-[21.52vw] h-[31.15vh] text-blue-100 px-2 border border-gray-700 rounded-2xl flex justify-evenly gap-5 items-center'
+  ref={cardRef}
+>
+   <img
         src={image}
         alt={title}
         className='w-[12.375vw] h-[29.44vh] object-cover rounded-2xl'
