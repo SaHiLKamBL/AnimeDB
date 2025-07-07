@@ -165,7 +165,7 @@ const AnimeDetailPage = () => {
   </div>
 
   {/* Licensors */}
-  <div className='w-full flex flex-wrap items-center gap-5 my-2'>
+  <div className='w-full flex flex-wrap items-center gap-5 my-5'>
     <h1 className='text-3xl text-blue-100 font-semibold min-w-max'>Licensors:</h1>
     <div className='flex flex-wrap gap-3 items-center'>
       {anime.licensors.length > 0 ? (
@@ -183,7 +183,7 @@ const AnimeDetailPage = () => {
   </div>
 
   {/* Producers */}
-  <div className='w-full flex flex-wrap items-center gap-5 my-2'>
+  <div className='w-full flex flex-wrap items-center gap-5 my-5'>
     <h1 className='text-3xl text-blue-100 font-semibold min-w-max'>Producers:</h1>
     <div className='flex flex-wrap gap-3 items-center'>
       {anime.producers.length > 0 ? (
@@ -202,7 +202,7 @@ const AnimeDetailPage = () => {
 </div>
 
         {/* Streaming Platforms */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 my-5">
           <h2 className="text-3xl font-semibold text-blue-100">Streaming On:</h2>
           <div className="flex flex-wrap gap-3">
             {anime.streaming.map((stream) => (
@@ -219,8 +219,10 @@ const AnimeDetailPage = () => {
             ))}
           </div>
         </div>
-
-        <ReviewSection/>
+              <div className='w-full  flex justify-center items-center'>
+                        <ReviewSection name={anime.mal_id}/>
+              </div>
+      
       </div>
     </>
   )

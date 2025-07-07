@@ -16,7 +16,7 @@ const Navbar = () => {
                     <h1 className='cursor-pointer'>Search</h1>
                     <h1 className='cursor-pointer'>News</h1>
                 <h1 className='cursor-pointer' onClick={()=>{window.location.href='/about'}}>About</h1>
-                    <h1 className='cursor-pointer'>Recommdation</h1>
+                    <h1 onClick={()=>{window.location.href='/recommendation'}} className='cursor-pointer'>Recommdation</h1>
                 </div>
                 <Avatar className='border-[1px] border-white w-13 h-13 cursor-pointer'>
                     <AvatarImage src="https://github.com/shadcn.png" />
