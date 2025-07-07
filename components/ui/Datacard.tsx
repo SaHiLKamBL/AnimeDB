@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { useEffect,useState,useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface DatacardProps {
   id: number;
@@ -26,7 +27,7 @@ const Datacard: React.FC<DatacardProps> = ({
   genres,
 }) => {
     const cardRef = useRef<HTMLDivElement>(null);
-
+ 
   useEffect(() => {
     const card = cardRef.current;
     if (!card) return;
@@ -57,10 +58,15 @@ const Datacard: React.FC<DatacardProps> = ({
       card.removeEventListener('mouseleave', reset);
     };
   }, []);
+  const router=useRouter()
+  const detail=()=>{
+     router.push(`/detail/${id}`)
+  }
+
   return (
    <div
   className='tilt-card w-full max-w-[21.52vw] h-[31.15vh] text-blue-100 px-2 border border-gray-700 rounded-2xl flex justify-evenly gap-5 items-center'
-  ref={cardRef}
+  ref={cardRef} onClick={detail}
 >
    <img
         src={image}
