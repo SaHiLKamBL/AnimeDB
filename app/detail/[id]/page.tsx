@@ -5,6 +5,7 @@ import axios from 'axios'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import ReviewSection from '@/components/ui/Review'
+import { useRouter } from 'next/navigation'
 
 interface TitleObject {
   type: string
@@ -52,6 +53,7 @@ const AnimeDetailPage = () => {
   const [anime, setAnime] = useState<AniData | null>(null)
   const [loading, setLoading] = useState(true)
   const params = useParams()
+  let router=useRouter()
 
   useEffect(() => {
     const fetchAnimeData = async () => {
@@ -95,9 +97,15 @@ const AnimeDetailPage = () => {
           <div className='w-[60vw] flex flex-col items-start gap-2'>
             <div className='w-full flex items-center justify-between'>
               <h1 className='text-5xl font-semibold text-cyan-200 my-1'>{title}</h1>
-              <div className='w-fit px-3 h-[4.91vh] border border-gray-700 rounded-2xl flex justify-center items-center font-medium text-orange-200 text-lg'>
+              <div className='flex items-center gap-2'>
+ <div className='w-fit px-3 h-[4.91vh] border border-gray-700 rounded-2xl flex justify-center items-center font-medium text-orange-200 text-lg'>
                 {anime.status}
               </div>
+<div onClick={()=>{router.push(`/news/${anime.mal_id}`)}} className='w-fit px-3 h-[4.91vh] border border-gray-700 rounded-2xl flex justify-center items-center font-medium text-blue-50 text-lg cursor-pointer'>
+                 News
+              </div>
+              </div>
+             
             </div>
 
             <div className='flex items-center justify-around w-[18vw] my-5'>
@@ -201,7 +209,7 @@ const AnimeDetailPage = () => {
   </div>
 </div>
 
-        {/* Streaming Platforms */}
+    
         <div className="flex flex-col gap-4 my-5">
           <h2 className="text-3xl font-semibold text-blue-100">Streaming On:</h2>
           <div className="flex flex-wrap gap-3">

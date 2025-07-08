@@ -54,7 +54,7 @@ const Page = () => {
 
             {/* Page background */}
             <div className="w-full min-h-screen bg-gray-950 px-10 py-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-2">
                     {recom.map((item) => {
                         const anime = item.entry[0]; 
                         // {
@@ -72,9 +72,9 @@ const Page = () => {
                             <div
                             onClick={()=>{router.push(`/detail/${anime.mal_id}`)}}
                                
-                                className="bg-gray-950 text-white rounded-xl p-4 border border-gray-800 shadow-lg w-full max-w-xs mx-auto"
+                                className="bg-gray-950 text-white rounded-xl p-4 border border-gray-800 shadow-lg w-full max-w-xs mx-auto "
                             >
-                                {/* ✅ Replace with <img> to confirm image loading */}
+                                
                                 <img
                                     src={anime.images?.jpg?.image_url || '/fallback.jpg'}
                                     alt={anime.title}
