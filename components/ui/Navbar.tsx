@@ -13,7 +13,7 @@ const Navbar = () => {
                 <h1 onClick={()=>{window.location.href='/home'}} className='text-4xl font-bold cursor-pointer'>KaizokuDex</h1>
                 <div className='text-2xl font-medium text-white flex justify-evenly items-center gap-10 w-1/2'>
                     <h1 className='cursor-pointer'>AI</h1>
-                    <h1 className='cursor-pointer'>Search</h1>
+                    <h1 onClick={()=>{window.location.href='/search'}} className='cursor-pointer'>Search</h1>
                 <h1 className='cursor-pointer' onClick={()=>{window.location.href='/about'}}>About</h1>
                     <h1 onClick={()=>{window.location.href='/recommendation'}} className='cursor-pointer'>Recommdation</h1>
                 </div>

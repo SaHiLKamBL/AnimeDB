@@ -43,13 +43,12 @@ const page = () => {
 
   return (
     <>
-      <div className='w-full h-screen bg-[url("/login.webp")] bg-cover bg-center gap-10 flex flex-col px-60 py-20'>
+      <div className='w-full h-screen bg-[url("/login.webp")] bg-gray-950 bg-cover bg-center gap-10 flex flex-col px-60 py-20'>
         <div className='w-full h-[15vh] flex justify-center items-center'>
           <p className='text-6xl font-bold text-blue-100'>KaizokuDex</p>
         </div>
         <div className="w-[30vw] h-[50vh] p-8 border-2 border-white rounded-2xl bg-transparent text-blue-100 flex flex-col gap-6 shadow-amber-50">
           <h2 className="text-4xl text-blue-100 font-bold text-center">Login</h2>
-
           <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-1">
               <label htmlFor="email" className="text-blue-100 text-2xl font-semibold">Email</label>
@@ -93,6 +92,10 @@ const page = () => {
             >
               Sign In
             </button>
+            <Link href="/register" className="w-full flex justify-center items-center text-blue-100 text-lg">
+  Sign Up
+</Link>
+
           </form>
         </div>
       </div>

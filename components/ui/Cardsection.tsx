@@ -49,10 +49,9 @@ const Cardsection = () => {
     try {
       setLoading(true)
       const res = await axios.get(`https://api.jikan.moe/v4/anime?page=${pageNumber}`)
-      console.log('Fetched Data:', res.data.data)
       setAnidata(res.data.data)
     } catch (error) {
-      toast.error('Error Fetching Data')
+      
       console.error('Fetch error:', error)
     } finally {
       setLoading(false)
