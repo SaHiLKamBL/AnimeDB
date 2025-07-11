@@ -11,31 +11,39 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-
-const formSchema = z.object({
-  username: z.string().min(2, "Username must be at least 2 characters").max(50),
-  email: z.string().email("Invalid email"),
-  password: z.string().min(6, "Password must be at least 6 characters"),
-  confirmPassword: z.string().min(6, "Confirm Password must be at least 6 characters"),
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords do not match",
-  path: ["confirmPassword"],
-});
+ import { formSchema } from '@/schemas/signupschema';
+ import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+import axios from 'axios';
 
 const Page = () => {
+  let router=useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: "",
       email: "",
       password: "",
-      confirmPassword: "",
     },
   });
+ 
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log("Form submitted:", values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try{
+       let response=await axios.post('/api/sign-up',values)
+       
+    if (response.status === 200 || response.status === 201) {
+      toast.success("You have signed up successfully!");
+      router.push(`/login`);
+    } else {
+      toast.error("Sign up failed. Please try again.");
+    }
+  } catch (error: any) {
+    toast.error(error?.response?.data?.message || "Sign up failed.");
+    console.log(error);
   }
+  }
+
 
   return (
     <div className='w-full h-screen bg-[url("/register2.jpg")] bg-cover bg-center gap-10 flex flex-col px-90 py-26'>
@@ -105,7 +113,6 @@ const Page = () => {
             />
 
             <FormField
-              control={form.control}
               name="confirmPassword"
               render={({ field }) => (
                 <FormItem>
@@ -124,6 +131,7 @@ const Page = () => {
             />
 
             <button
+      
               type="submit"
               className="mt-4 py-2 px-4 rounded bg-green-300 text-white font-semibold hover:bg-green-500 transition"
             >
