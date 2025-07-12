@@ -92,8 +92,8 @@ const page = () => {
             >
               Sign In
             </button>
-            <Link href="/register" className="w-full flex justify-center items-center text-blue-100 text-lg">
-  Sign Up
+            <Link href="/register" className="w-full flex justify-center items-center  text-xl font-medium">
+  New here?<span className='text-amber-500 hover:text-amber-500'> Sign up now</span>
 </Link>
 
           </form>

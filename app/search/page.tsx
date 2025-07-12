@@ -32,6 +32,7 @@ const Page = () => {
   const [search, setSearch] = useState('')
   const debouncedSearch = useDebounce(search)
   const [anime, setAnime] = useState<AnimeData[]>([])
+  
 
   useEffect(() => {
     const fetchAnime = async () => {
