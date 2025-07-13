@@ -4,6 +4,7 @@ import UserModel from "@/model/User";
 import bycrpt from "bcryptjs";
 
 
+
 export async function POST(request:Request){
      await dbConnect();
 
@@ -21,7 +22,7 @@ export async function POST(request:Request){
         const newUser=new UserModel({
             email,
             password:hashedPassword,
-            username
+            username,
         })
         await newUser.save();
         return Response.json({

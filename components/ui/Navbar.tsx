@@ -20,7 +20,7 @@ const Navbar = () => {
                 
                   
                 </div>
-                <Avatar className='border-[1px] border-white w-13 h-13 cursor-pointer'>
+                <Avatar onClick={()=>{window.location.href='/profile'}} className='border-[1px] border-white w-13 h-13 cursor-pointer'>
                     <AvatarImage src="https://github.com/shadcn.png" />
                     <AvatarFallback>Ani</AvatarFallback>
                 </Avatar>

@@ -87,14 +87,14 @@ export default function ChatPage() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Type your message here..."
-          className="w-1/2 p-5 px-10 rounded-2xl bg-white border-2 border-white text-black text-2xl font-medium"
+          className="w-1/2 p-5 px-10 rounded-2xl bg-white border-2 border-white text-black text-2xl font-semibold"
           disabled={loading}
         />
 
         <button
           onClick={sendMessage}
           disabled={loading || !input.trim()}
-          className=" w-32 h-20 px-4 py-2 bg-purple-800 text-white text-2xl font-medium rounded-md hover:bg-purple-800 disabled:opacity-30"
+          className=" w-32 h-20 px-4 py-2 bg-purple-800 text-white text-2xl font-semibold rounded-md hover:bg-purple-800 disabled:opacity-30"
         >
           {loading ? 'Sending...' : 'Send'}
         </button>
