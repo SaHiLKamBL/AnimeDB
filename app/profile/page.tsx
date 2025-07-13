@@ -4,6 +4,7 @@ import Navbar from '@/components/ui/Navbar'
 import { useSession } from 'next-auth/react'
 import { IUser } from '@/model/User'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const ProfilePage = () => {
   const [user, setUser] = useState<IUser | null>(null)
@@ -14,10 +15,10 @@ const ProfilePage = () => {
     const fetchUserData = async () => {
       try {
         if (!session?.user?.email) return
-        
+
         const response = await fetch(`/api/users?email=${session.user.email}`)
         if (!response.ok) throw new Error('Failed to fetch user')
-        
+
         const userData = await response.json()
         setUser(userData)
       } catch (error) {
@@ -45,7 +46,7 @@ const ProfilePage = () => {
     return (
       <>
         <Navbar />
-        <div className="w-full bg-gray-950 min-h-screen flex justify-center items-center">
+        <div className="w-full bg-gray-950 min-h-screen  flex justify-center items-center">
           <div className="text-white text-2xl">User not found</div>
         </div>
       </>
@@ -55,30 +56,30 @@ const ProfilePage = () => {
   return (
     <>
       <Navbar />
-      <div className="w-full bg-gray-950 min-h-screen">
-<div className="w-full h-60 bg-purple-700 flex justify-center items-end relative">
+      <div className="w-full bg-gray-950 h-[120vh]">
+        <div className="w-full h-60 bg-purple-700 flex justify-center items-end relative">
 
-  <div className="w-32 h-32 rounded-full border-4 border-white bg-gray-800 overflow-hidden translate-y-1/2">
-    {user.image ? (
-      // Use Next.js Image component for optimization
-      <Image
-        src={user.image}
-        alt="Profile"
-        width={128}
-        height={128}
-        className="w-full h-full object-cover"
-        priority
-      />
-    ) : (
-      // Fallback avatar
-      <div className="w-full h-full flex items-center justify-center bg-amber-400">
-        <span className="text-2xl font-bold text-gray-800">
-          {user.username.charAt(0).toUpperCase()}
-        </span>
-      </div>
-    )}
-  </div>
-</div>
+          <div className="w-32 h-32 rounded-full border-4 border-white bg-gray-800 overflow-hidden translate-y-1/2">
+            {user.image ? (
+              // Use Next.js Image component for optimization
+              <Image
+                src={user.image}
+                alt="Profile"
+                width={128}
+                height={128}
+                className="w-full h-full object-cover"
+                priority
+              />
+            ) : (
+              // Fallback avatar
+              <div className="w-full h-full flex items-center justify-center bg-amber-400">
+                <span className="text-2xl font-bold text-gray-800">
+                  {user.username.charAt(0).toUpperCase()}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
 
         {/* User Info */}
         <div className="flex flex-col justify-center items-center mt-28">
@@ -93,7 +94,7 @@ const ProfilePage = () => {
               <h1 className="text-3xl text-white font-semibold">Favourite Genres:</h1>
               <ul className="flex gap-2">
                 {user.favouriteGenres.map((genre, index) => (
-                  <li 
+                  <li
                     key={index}
                     className="px-5 py-2 text-white bg-purple-500 text-2xl font-semibold rounded-2xl"
                   >
@@ -121,7 +122,7 @@ const ProfilePage = () => {
             <h1 className="text-3xl text-white font-semibold">Favourite Anime</h1>
             <ul className="flex gap-2">
               {user.favouriteAnime.map((anime, index) => (
-                <li 
+                <li
                   key={index}
                   className="px-5 py-2 text-white bg-purple-500 text-2xl font-semibold rounded-2xl"
                 >
@@ -131,6 +132,13 @@ const ProfilePage = () => {
             </ul>
           </div>
         ) : null}
+        <div className='w-full h-20 bg-gray-950 flex justify-center items-center my-5'>
+          <Link href='/editprofile'>
+          <div className="px-5 py-2 text-white bg-purple-500 text-2xl font-semibold rounded-2xl">
+            Edit Profile
+          </div>
+          </Link>
+        </div>
       </div>
     </>
   )
