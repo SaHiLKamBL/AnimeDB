@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <>
             <div className='w-full h-20 flex justify-evenly items-center bg-gray-950  text-white border-gray-800 border-2 '>
-                <h1 onClick={()=>{window.location.href='/home'}} className='text-4xl font-bold cursor-pointer'>KaizokuDex</h1>
+                <h1 onClick={()=>{window.location.href='/home'}} className='text-4xl font-dancing cursor-pointer'>KaizokuDex</h1>
                 <div className='text-2xl font-medium text-white flex justify-evenly items-center gap-10 w-1/2'>
                     <h1 onClick={()=>{window.location.href='/ai'}} className='cursor-pointer'>AskAI</h1>
                     <h1 onClick={()=>{window.location.href='/search'}} className='cursor-pointer'>Search</h1>

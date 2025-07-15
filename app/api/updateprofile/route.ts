@@ -31,7 +31,7 @@ export async function POST(req: Request) {
         }
       },
       { new: true }
-    ).lean(); // Add .lean() to get a plain JavaScript object
+    ).lean();
 
     if (!updatedUser) {
       return NextResponse.json({ message: 'User not found' }, { status: 404 });
