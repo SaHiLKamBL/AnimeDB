@@ -65,7 +65,7 @@ const Datacard: React.FC<DatacardProps> = ({
 
   return (
    <div
-  className='tilt-card w-full max-w-[21.52vw] h-[31.15vh] text-blue-100 px-2 border border-gray-700 rounded-2xl flex justify-evenly gap-5 items-center'
+  className='tilt-card w-full max-w-[21.52vw] h-[31.15vh] text-white px-2 border border-[#f26168] rounded-2xl flex justify-evenly gap-5 items-center'
   ref={cardRef} onClick={detail}
 >
    <img
@@ -75,23 +75,23 @@ const Datacard: React.FC<DatacardProps> = ({
       />
 
       <div className='w-[12.375vw] h-[30.15vh] flex flex-col gap-4 items-start'>
-        <div className='w-fit px-3 h-[4.91vh] border border-gray-700 rounded-2xl flex justify-center items-center text-orange-200 text-sm'>
+        <div className='w-fit px-3 h-[4.91vh] border border-[#f26168] rounded-2xl flex justify-center items-center text-white text-sm'>
           {status}
         </div>
 
         <p className='text-sm'>{episodes} Episodes</p>
 
-        <div className='text-2xl font-semibold text-blue-100 my-1 line-clamp-2'>
+        <div className='text-2xl font-semibold text-white my-1 line-clamp-2'>
           {title}
         </div>
 
         <div className='w-full flex items-center justify-start gap-5 mt-1'>
           <div className='flex items-center flex-col'>
-            <div className='flex gap-2 items-center text-blue-100'>
+            <div className='flex gap-2 items-center text-white'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
-                width='20'
-                height='20'
+                width='21'
+                height='21'
                 fill='none'
                 stroke='#dbe6ff'
                 strokeWidth='2'
@@ -103,11 +103,11 @@ const Datacard: React.FC<DatacardProps> = ({
               </svg>
               <p className='text-md'>{score.toFixed(2)}</p>
             </div>
-            <p className='text-xs text-blue-200'>{scored_by} Users</p>
+            <p className='text-xs text-white'>{scored_by} Users</p>
           </div>
 
           <div className='flex flex-col items-center'>
-            <div className='flex items-center text-blue-100'>
+            <div className='flex items-center text-white'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='20'
@@ -126,7 +126,7 @@ const Datacard: React.FC<DatacardProps> = ({
               </svg>
               <p className='text-md ml-1'>{rank}</p>
             </div>
-            <p className='text-xs text-blue-200'>Ranking</p>
+            <p className='text-xs text-white'>Ranking</p>
           </div>
         </div>
 
@@ -134,7 +134,7 @@ const Datacard: React.FC<DatacardProps> = ({
           {genres.slice(0, 2).map((genre, idx) => (
             <div
               key={idx}
-              className='px-2 h-8 flex items-center justify-center bg-gray-700 text-sm rounded-lg border border-gray-700'
+              className='px-2 h-8 flex items-center justify-center bg-red-500 text-sm rounded-lg border border-gray-700'
             >
               {genre}
             </div>

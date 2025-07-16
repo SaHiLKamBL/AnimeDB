@@ -18,7 +18,7 @@ interface prop{
 const Bannerui: React.FC<prop> = ({image,title,genres,url,score,episodes,year,background}) => {
  
   return (
-    <div className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden bg-black">
+    <div className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden bg-black border-l-8 border-red-500">
    
       <div className="absolute inset-0 flex items-center justify-center">
         <img

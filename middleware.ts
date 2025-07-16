@@ -1,5 +1,5 @@
-import { withAuth } from "next-auth/middleware"
-import { NextResponse } from 'next/server'
+import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
 
 export default withAuth(
   function middleware() {
@@ -10,26 +10,45 @@ export default withAuth(
       authorized: ({ token, req }) => {
         const { pathname } = req.nextUrl;
 
-        // Allow public routes
+        // Always allow auth API
+        if (pathname.startsWith("/api/auth")) {
+          return true;
+        }
+
+        // Always allow static Next.js internals
         if (
-          pathname.startsWith('/api/auth') ||
-          pathname === '/login' ||
-          pathname === '/register'||
-          pathname ==='/'
+          pathname.startsWith("/_next") ||
+          pathname.startsWith("/favicon.ico")
         ) {
           return true;
         }
 
-        // Require token for all other pages
+        // Always allow static files (jpg, png, svg, webp, etc.)
+        if (
+          pathname.match(/\.(jpg|jpeg|png|svg|webp|gif|ico)$/)
+        ) {
+          return true;
+        }
+
+        // Always allow public pages
+        if (
+          pathname === "/" ||
+          pathname === "/login" ||
+          pathname === "/register"
+        ) {
+          return true;
+        }
+
+        // Require token for everything else
         if (!token) {
           return false;
         }
 
         return true;
-      }
+      },
     },
     pages: {
-      signIn: '/login',
-    }
+      signIn: "/login",
+    },
   }
-)
+);

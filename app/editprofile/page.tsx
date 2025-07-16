@@ -35,7 +35,7 @@ const profSchema = z.object({
 const GENRES = ['Action', 'Comedy', 'Isekai', 'Romance', 'Adventure']
 
 export default function EditProfile() {
-    const router=useRouter()
+    const router = useRouter()
     const form = useForm<z.infer<typeof profSchema>>({
         resolver: zodResolver(profSchema),
         defaultValues: {
@@ -45,31 +45,31 @@ export default function EditProfile() {
             favouriteAnime: [],
         },
     })
-     const{data:session}=useSession()
-       const userId = session?.user?.id;
+    const { data: session } = useSession()
+    const userId = session?.user?.id;
 
-  async function onSubmit(values: z.infer<typeof profSchema>) {
-  if (!userId) {
-    console.log("No user ID found in session");
-    alert("User not logged in");
-    return;
-  }
+    async function onSubmit(values: z.infer<typeof profSchema>) {
+        if (!userId) {
+            console.log("No user ID found in session");
+            alert("User not logged in");
+            return;
+        }
 
 
-  try {
-    const response = await axios.post('/api/updateprofile', { userId, ...values });
+        try {
+            const response = await axios.post('/api/updateprofile', { userId, ...values });
 
-    if (response.status === 200) {
-      alert('Profile updated successfully!');
-      router.push(`/profile`);
-    } else {
-      alert('Failed to update profile.');
+            if (response.status === 200) {
+                alert('Profile updated successfully!');
+                router.push(`/profile`);
+            } else {
+                alert('Failed to update profile.');
+            }
+        } catch (error: any) {
+            console.log("API error:", error);
+            alert('An error occurred while updating profile.');
+        }
     }
-  } catch (error: any) {
-    console.log("API error:", error);
-    alert('An error occurred while updating profile.');
-  }
-}
 
 
     function MultiSelectGenres({
@@ -113,47 +113,47 @@ export default function EditProfile() {
         )
     }
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const file = e.target.files?.[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      if (event.target?.result) {
-        form.setValue('image', event.target.result as string);
-      }
+        const file = e.target.files?.[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                if (event.target?.result) {
+                    form.setValue('image', event.target.result as string);
+                }
+            };
+            reader.readAsDataURL(file);
+        }
     };
-    reader.readAsDataURL(file);
-  }
-};
 
     return (
         <>
             <div className='w-full h-screen  bg-gray-950 p-20 '>
-               
+
                 <div className='w-full flex flex-col justify-evenly items-center'>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className=" bg-gray-950 w-[60vw] flex flex-col justify-evenly items-center h-[80vh]">
 
-                           <FormField
-  control={form.control}
-  name="image"
-  render={({ field }) => (
-    <FormItem>
-      <FormLabel className='text-3xl text-white font-semibold'>Image</FormLabel>
-      <FormControl>
-        <input 
-          className='bg-white rounded-2xl px-5 h-10 flex justify-center items-center' 
-          type="file" 
-          onChange={handleFileChange}
-          accept="image/*"
-        />
-      </FormControl>
-      <FormDescription className='text-md font-semibold text-gray-300'>
-        Upload your profile image
-      </FormDescription>
-      <FormMessage />
-    </FormItem>
-  )}
-/>
+                            <FormField
+                                control={form.control}
+                                name="image"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className='text-3xl text-red-500 font-semibold'>Image</FormLabel>
+                                        <FormControl>
+                                            <input
+                                                className='bg-white rounded-2xl px-5 h-10 flex justify-center items-center'
+                                                type="file"
+                                                onChange={handleFileChange}
+                                                accept="image/*"
+                                            />
+                                        </FormControl>
+                                        <FormDescription className='text-md font-semibold text-gray-300'>
+                                            Upload your profile image
+                                        </FormDescription>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
 
 
                             <FormField
@@ -161,7 +161,7 @@ export default function EditProfile() {
                                 name="aboutme"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className='text-3xl text-white font-semibold'>About Me</FormLabel>
+                                        <FormLabel className='text-3xl text-red-500 font-semibold'>About Me</FormLabel>
                                         <FormControl>
                                             <input
                                                 className=' bg-white rounded-2xl px-5  h-10 flex justify-center items-center'
@@ -182,7 +182,7 @@ export default function EditProfile() {
                                 name="favouriteGenres"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className='text-3xl text-white font-semibold'>Favourite Genres</FormLabel>
+                                        <FormLabel className='text-3xl text-red-500 font-semibold'>Favourite Genres</FormLabel>
                                         <FormControl>
                                             <MultiSelectGenres
                                                 selected={field.value || []}
@@ -200,10 +200,10 @@ export default function EditProfile() {
                                 name="favouriteAnime"
                                 render={({ field }) => (
                                     <FormItem>
-                                        <FormLabel className='text-3xl text-white font-semibold'>Favourite Anime</FormLabel>
+                                        <FormLabel className='text-3xl text-red-500 font-semibold'>Favourite Anime</FormLabel>
                                         <FormControl>
                                             <input
-                                                className= " bg-white rounded-2xl px-5  h-10 text-center"
+                                                className=" bg-white rounded-2xl px-5  h-10 text-center"
                                                 type="text"
                                                 placeholder="e.g. One Piece, Naruto"
                                                 value={field.value?.join(', ') || ''}
@@ -221,7 +221,7 @@ export default function EditProfile() {
                                 )}
                             />
 
-                            <button  type="submit" className="px-4 py-2 bg-purple-600 text-white rounded-2xl text-2xl font-semibold ">
+                            <button type="submit" className="px-4 py-2 bg-red-500 text-white rounded-2xl text-2xl font-semibold ">
                                 Submit
                             </button>
                         </form>

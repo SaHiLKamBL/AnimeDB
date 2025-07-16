@@ -84,7 +84,7 @@ const AnimeDetailPage = () => {
   return (
     <>
       <Navbar />
-      <div className='w-full bg-gray-950 p-10 overflow-hidden'>
+      <div className='w-full bg-black p-10 overflow-hidden'>
         <div className='w-[80vw] flex gap-5'>
           <div className='w-80 h-[50vh] rounded-2xl overflow-hidden'>
             <img 
@@ -96,12 +96,12 @@ const AnimeDetailPage = () => {
 
           <div className='w-[60vw] flex flex-col items-start gap-2'>
             <div className='w-full flex items-center justify-between'>
-              <h1 className='text-5xl font-semibold text-cyan-200 my-1'>{title}</h1>
+              <h1 className='text-5xl font-semibold text-red-500 my-1'>{title}</h1>
               <div className='flex items-center gap-2'>
- <div className='w-fit px-3 h-[4.91vh] border border-gray-700 rounded-2xl flex justify-center items-center font-medium text-orange-200 text-lg'>
+ <div className='w-fit px-3 h-[4.91vh] border border-[#f26168] rounded-2xl flex justify-center items-center font-medium text-white text-lg'>
                 {anime.status}
               </div>
-<div onClick={()=>{router.push(`/news/${anime.mal_id}`)}} className='w-fit px-3 h-[4.91vh] border border-gray-700 rounded-2xl flex justify-center items-center font-medium text-blue-50 text-lg cursor-pointer'>
+<div onClick={()=>{router.push(`/news/${anime.mal_id}`)}} className='w-fit px-3 h-[4.91vh] border border-[#f26168] rounded-2xl flex justify-center items-center font-medium text-blue-50 text-lg cursor-pointer hover:bg-red-500'>
                  News
               </div>
               </div>
@@ -121,18 +121,18 @@ const AnimeDetailPage = () => {
 
               <div className='flex gap-1'>
                 <img src="/icons8-heart-30.png" alt="rate" />
-                <h1 className='text-2xl text-blue-100 font-medium'>{anime.favorites}</h1>
+                <h1 className='text-2xl text-white font-medium'>{anime.favorites}</h1>
               </div>
             </div>
 
-            <div className='w-full flex justify-start gap-5 items-center'>
-              <h1 className='text-3xl text-blue-100 font-semibold'>Duration:</h1>
-              <h1 className='text-3xl text-blue-100 font-medium'>{anime.duration}</h1>
+            <div className='w-full flex justify-start gap-5 items-center mb-3'>
+              <h1 className='text-3xl text-red-500 font-semibold'>Duration:</h1>
+              <h1 className='text-3xl text-white font-medium'>{anime.duration}</h1>
             </div>
 
-            <div className='w-[60vw] flex justify-start gap-5'>
-              <h1 className='text-3xl text-blue-100 font-semibold'>Description:</h1>
-              <p className='text-xl text-blue-100 font-medium'>{anime.synopsis}</p>
+            <div className='w-[70vw] flex justify-start gap-5'>
+              <h1 className='text-3xl text-red-500 font-semibold'>Description:</h1>
+              <p className='text-xl text-white font-medium'>{anime.synopsis}</p>
             </div>
           </div>
         </div>
@@ -145,7 +145,7 @@ const AnimeDetailPage = () => {
           {anime.genres.slice(0, 5).map((genre, idx) => (
             <div
               key={idx}
-              className='px-4 text-2xl font-medium w-fit py-2 bg-gray-800 rounded-lg text-blue-100 border border-gray-700'
+              className='px-5 py-2 text-white bg-red-500 text-2xl font-semibold rounded-2xl text-center'
             >
               {genre.name}
             </div>
@@ -156,30 +156,30 @@ const AnimeDetailPage = () => {
        <div className='w-[60vw] gap-5 flex flex-col'>
   {/* Studios */}
   <div className='w-full flex flex-wrap items-center gap-5 my-2'>
-    <h1 className='text-3xl text-blue-100 font-semibold min-w-max'>Studio:</h1>
+    <h1 className='text-3xl text-red-500 font-semibold min-w-max'>Studio:</h1>
     <div className='flex flex-wrap gap-3 items-center'>
       {anime.studios.length > 0 ? (
         anime.studios.map((studio) => (
           <Link key={studio.name} href='/url' className='hover:opacity-80 transition-opacity'>
-            <div className='px-4 py-1 bg-gray-800 rounded-lg text-blue-100 border border-gray-700 text-2xl font-medium'>
+            <div className='px-4 py-1 bg-gray-900 rounded-lg border-[#f26168] text-white border  text-2xl font-medium'>
               {studio.name}
             </div>
           </Link>
         ))
       ) : (
-        <span className='text-2xl text-blue-100 font-medium'>N/A</span>
+        <span className='text-2xl text-red-500 font-medium'>N/A</span>
       )}
     </div>
   </div>
 
   {/* Licensors */}
   <div className='w-full flex flex-wrap items-center gap-5 my-5'>
-    <h1 className='text-3xl text-blue-100 font-semibold min-w-max'>Licensors:</h1>
+    <h1 className='text-3xl text-red-500 font-semibold min-w-max'>Licensors:</h1>
     <div className='flex flex-wrap gap-3 items-center'>
       {anime.licensors.length > 0 ? (
         anime.licensors.map((licensor) => (
           <Link key={licensor.name} href='/url' className='hover:opacity-80 transition-opacity'>
-            <div className='px-4 py-1 bg-gray-800 rounded-lg text-blue-100 border border-gray-700 text-2xl font-medium'>
+            <div className='px-4 py-1 bg-gray-900 rounded-lg border-[#f26168] text-white border  text-2xl font-medium'>
               {licensor.name}
             </div>
           </Link>
@@ -192,12 +192,12 @@ const AnimeDetailPage = () => {
 
   {/* Producers */}
   <div className='w-full flex flex-wrap items-center gap-5 my-5'>
-    <h1 className='text-3xl text-blue-100 font-semibold min-w-max'>Producers:</h1>
+    <h1 className='text-3xl text-red-500 font-semibold min-w-max'>Producers:</h1>
     <div className='flex flex-wrap gap-3 items-center'>
       {anime.producers.length > 0 ? (
         anime.producers.map((producer) => (
           <Link key={producer.name} href='/url' className='hover:opacity-80 transition-opacity'>
-            <div className='px-4 py-1 bg-gray-800 rounded-lg text-blue-100 border border-gray-700 text-2xl font-medium'>
+            <div className='px-4 py-1 bg-gray-900 rounded-lg border-[#f26168] text-white border  text-2xl font-medium'>
               {producer.name}
             </div>
           </Link>
@@ -211,7 +211,7 @@ const AnimeDetailPage = () => {
 
     
         <div className="flex flex-col gap-4 my-5">
-          <h2 className="text-3xl font-semibold text-blue-100">Streaming On:</h2>
+          <h2 className="text-3xl font-semibold text-red-500">Streaming On:</h2>
           <div className="flex flex-wrap gap-3">
             {anime.streaming.map((stream) => (
               <Link 
@@ -220,7 +220,7 @@ const AnimeDetailPage = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                <div className="px-4 text-2xl font-medium w-fit py-2 bg-gray-800 rounded-lg text-blue-100 border border-gray-700 hover:bg-gray-700 transition-colors">
+                <div className="px-4 text-2xl font-medium w-fit py-2 bg-gray-900 rounded-lg text-white border border-[#f26168] hover:bg-red-700 transition-colors">
                   {stream.name}
                 </div>
               </Link>

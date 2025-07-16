@@ -43,13 +43,13 @@ const page = () => {
   return (
     <>
       <Navbar />
-      <div className='w-full bg-gray-950 p-10'>
+      <div className='w-full min-h-screen bg-black p-10'>
         <div className='w-full grid grid-cols-3 gap-5'>
           {
             anime.map((item)=>(
            
              
-                <div className='w-[30vw]  h-[60vh] border border-gray-700 rounded-2xl flex gap-5 px-2 py-4'>
+                <div className='w-[30vw]  h-[60vh] border border-[#f26168] rounded-2xl flex gap-5 px-2 py-4'>
           {item.images?.jpg?.image_url ? (
   <img
     src={item.images.jpg.image_url}
@@ -64,29 +64,30 @@ const page = () => {
 
               
             <div className='w-[16vw] h-full  flex flex-col items-start gap-2'>
-              <div className='text-2xl font-medium text-blue-100 flex gap-2 items-center'>
-                <p>Date:</p>
+              <div className='text-2xl font-medium text-white flex gap-2 items-center'>
+                <p className='text-red-500'>Date:</p>
                <p>{item.date.split('T')[0]}</p>
               </div>
              
-                <div className='text-2xl font-semibold text-blue-100 my-2 '>
+                <div className='text-2xl font-semibold text-white my-2 '>
                   {item.title}
                 </div>
                  <Link href={item.author_url}>
-                <div className='text-2xl font-semibold text-blue-100 my-1 line-clamp-1'>
-                  Reportby:{item.author_username}
+                <div className='text-2xl font-semibold text-white my-1 line-clamp-1'>
+                  <span className='text-red-500'>
+                  Reportby </span>: {item.author_username}
                 </div></Link>
 
                 <Link href={item.forum_url}>
-                <div className='text-2xl font-semibold text-blue-500  line-clamp-1'>
+                <div className='text-2xl font-semibold text-red-500  line-clamp-1 hover:underline'>
                   Join Discussion
                 </div></Link>
-                <div className='text-2xl font-semibold text-blue-100 my-1 line-clamp-1'>
-                  Comments:{item.comments}
+                <div className='text-2xl font-semibold text-white my-1 line-clamp-1'>
+                  Comments : {item.comments}
                 </div>
                 <div className='w-full '>
-                <p className='text-2xl font-semibold text-blue-100'> Headline: </p>
-                  <p className=' text-lg text-blue-100 '>{item.excerpt}</p>
+                <p className='text-2xl font-semibold text-red-500'> Headline: </p>
+                  <p className=' text-lg text-white '>{item.excerpt}</p>
                 </div>
 
             </div>

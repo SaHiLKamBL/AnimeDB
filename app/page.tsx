@@ -45,8 +45,8 @@ export default function Page() {
 
   return (
     <div className="w-full min-h-screen bg-black pt-16 py-5 flex flex-col justify-between">
-      <div className="w-full flex justify-end items-center h-8 px-20 mb-12">
-        <h1 className="text-6xl font-bold text-white">KaizokuDex</h1>
+      <div className="w-full flex justify-center items-center h-8 px-20 mb-12">
+        <h1 className="text-6xl font-bold text-red-500">KaizokuDex</h1>
       </div>
 
       <section className="splide w-full" aria-label="Banners">

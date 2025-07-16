@@ -7,7 +7,7 @@ import Cardsection from '@/components/ui/Cardsection'
 const page = () => {
   return (
     <>
-    <div className='w-full min-h-screen  bg-gray-950 overflow-y-clip overflow-x-clip'>
+    <div className='w-full min-h-screen  bg-black overflow-y-clip overflow-x-clip'>
         <Navbar/> 
       <br />
       <br />

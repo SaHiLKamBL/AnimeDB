@@ -46,7 +46,7 @@ const ReviewSection: React.FC<Props> = ({ name }) => {
     <div className="mt-6">
       <button
         onClick={() => setShowReviews(!showReviews)}
-        className="px-4 text-2xl font-medium w-fit py-2 bg-gray-800 rounded-lg text-orange-200 border border-gray-700"
+        className="px-4 text-2xl font-medium w-fit py-2 bg-gray-950 rounded-lg text-red-500 border border-white"
       >
         {showReviews ? 'Hide Reviews' : 'Show Reviews'}
       </button>
@@ -56,23 +56,23 @@ const ReviewSection: React.FC<Props> = ({ name }) => {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className="p-4 bg-gray-800 rounded-lg border border-gray-700"
+              className="p-4 bg-gray-900 rounded-lg border border-[#f26168]"
             >
-              <div className="flex items-start gap-3">
+              <div className="flex items-start gap-5">
                 <img
                   src={review.user?.images.jpg.image_url || '/default-avatar.png'}
                   alt="user-avatar"
-                  className="w-10 h-10 rounded-full bg-gray-600"
+                  className="w-10 h-10 rounded-full bg-gray-600 "
                 />
 
                 <div>
-                  <div className="font-semibold text-blue-100">
+                  <div className="font-semibold text-white">
                     {review.user?.username || 'Anonymous'}
                   </div>
                   <p className="mt-1 text-gray-300">
                     {review.review}
                   </p>
-                  <div className="mt-2 text-sm text-gray-400">
+                  <div className="mt-2 text-sm text-gray-300">
                     {new Date(review.date).toLocaleDateString()}
                   </div>
                 </div>

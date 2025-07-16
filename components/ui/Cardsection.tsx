@@ -70,7 +70,7 @@ const Cardsection = () => {
 
     {/* ✅ Show cards only if not loading */}
     {!loading && (
-      <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
+      <div className='w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 bg-[url("/cardsec2.png")] bg-[length:180%] bg-center bg-no-repeat'>
         {Anidata.length === 0 ? (
           <p className="text-white">No data available.</p>
         ) : (

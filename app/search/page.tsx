@@ -60,7 +60,7 @@ const Page = () => {
       <Navbar />
       <div className="w-full flex items-center justify-center my-10">
         <input
-          className="w-1/3 h-10 rounded-2xl px-4 border border-white placeholder:text-gray-600 focus:outline-none text-blue-100"
+          className="w-1/3 h-10 rounded-2xl px-4 border-2 border-[#f26168] text-xl placeholder:text-gray-600 focus:outline-none text-white"
           placeholder="Search for anime !!!"
           type="text"
           value={search}

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Navbar from '@/components/ui/Navbar';
 
 type Message = {
   role: 'user' | 'assistant';
@@ -54,9 +55,10 @@ export default function ChatPage() {
   }
 
   return (
-    <div className=" w-full h-screen flex  items-center justify-center bg-gray-950 p-8">
-      <div className="w-[60vw] h-[90vh] bg-gray-950 text-white p-8 rounded-lg">
-        <h1 className="text-center mb-4 text-5xl font-bold text-purple-800">Ask AI</h1>
+    <><Navbar/>
+    <div className=" w-full h-screen flex  items-center justify-center bg-black p-8">
+      <div className="w-[60vw] h-[90vh] bg-black text-white p-8 rounded-lg">
+        <h1 className="text-center mb-4 text-5xl font-bold text-red-500">Ask AI</h1>
 
         <div className=" p-4 h-[70vh] overflow-y-auto mb-4 rounded-lg [&::-webkit-scrollbar]:hidden">
           {messages.length === 0 && <p>Say hi to the assistant!</p>}
@@ -69,8 +71,8 @@ export default function ChatPage() {
               <div
                 className={`inline-block px-4 py-2 rounded-2xl max-w-[80%] whitespace-pre-wrap ${
                   msg.role === 'user'
-                    ? 'bg-gray-950 text-white border-2 border-white shadow-md shadow-blue-200'
-                    : 'text-purple-700 bg-gray-950 border-2 border-purple-500 shadow-md shadow-purple-300'
+                    ? 'bg-black text-white border-2 border-[#f26168] shadow-md  shadow-[#f26168]'
+                    : 'bg-black text-white border-2 border-[#f26168] shadow-md  shadow-[#f26168]'
                 }`}
               >
                 {msg.content}
@@ -87,14 +89,14 @@ export default function ChatPage() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Type your message here..."
-          className="w-1/2 p-5 px-10 rounded-2xl bg-white border-2 border-white text-black text-2xl font-semibold"
+          className="w-1/2 p-5 px-10 rounded-2xl bg-white border-2 border-[#f26168] text-black text-2xl font-semibold"
           disabled={loading}
         />
 
         <button
           onClick={sendMessage}
           disabled={loading || !input.trim()}
-          className=" w-32 h-20 px-4 py-2 bg-purple-800 text-white text-2xl font-semibold rounded-md hover:bg-purple-800 disabled:opacity-30"
+          className=" w-32 h-20 px-4 py-2 bg-red-500 text-white text-2xl font-semibold rounded-md hover:bg-red-700 disabled:opacity-30"
         >
           {loading ? 'Sending...' : 'Send'}
         </button>
@@ -103,5 +105,6 @@ export default function ChatPage() {
 
       </div>
     </div>
+    </>
   );
 }
