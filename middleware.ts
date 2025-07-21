@@ -11,11 +11,15 @@ export default withAuth(
         const { pathname } = req.nextUrl;
 
         // Always allow auth API
-        if (pathname.startsWith("/api/auth")) {
+        if (
+          pathname.startsWith("/api/auth") ||
+          pathname.startsWith("/api/sign-up") ||
+           pathname.startsWith("/api/chat") // Add this line
+        ) {
           return true;
         }
 
-        // Always allow static Next.js internals
+        // Rest of your existing checks...
         if (
           pathname.startsWith("/_next") ||
           pathname.startsWith("/favicon.ico")
@@ -23,14 +27,10 @@ export default withAuth(
           return true;
         }
 
-        // Always allow static files (jpg, png, svg, webp, etc.)
-        if (
-          pathname.match(/\.(jpg|jpeg|png|svg|webp|gif|ico)$/)
-        ) {
+        if (pathname.match(/\.(jpg|jpeg|png|svg|webp|gif|ico)$/)) {
           return true;
         }
 
-        // Always allow public pages
         if (
           pathname === "/" ||
           pathname === "/login" ||
@@ -39,7 +39,6 @@ export default withAuth(
           return true;
         }
 
-        // Require token for everything else
         if (!token) {
           return false;
         }

@@ -43,8 +43,8 @@ const Page = () => {
       } else {
         toast.error("Sign up failed. Please try again.");
       }
-    } catch (error: any) {
-      toast.error(error?.response?.data?.message || "Sign up failed.");
+    } catch (error) {
+      toast.error( "Sign up failed.");
       console.log(error);
     }
   }

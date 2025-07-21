@@ -22,6 +22,7 @@ export async function GET(request: Request) {
       _id: user._id.toString()
     })
   } catch (error) {
+    console.error('Error fetching user:', error)
     return NextResponse.json(
       { error: 'Server error' },
       { status: 500 }

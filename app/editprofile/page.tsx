@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
@@ -65,7 +65,7 @@ export default function EditProfile() {
             } else {
                 alert('Failed to update profile.');
             }
-        } catch (error: any) {
+        } catch (error) {
             console.log("API error:", error);
             alert('An error occurred while updating profile.');
         }
@@ -136,7 +136,7 @@ export default function EditProfile() {
                             <FormField
                                 control={form.control}
                                 name="image"
-                                render={({ field }) => (
+                                render={() => (
                                     <FormItem>
                                         <FormLabel className='text-3xl text-red-500 font-semibold'>Image</FormLabel>
                                         <FormControl>

@@ -40,8 +40,8 @@ export default function ChatPage() {
       const assistantMessage = data.message;
 
       setMessages((prev) => [...prev, assistantMessage]);
-    } catch (e: any) {
-      setError(e.message);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Unknown error');
     } finally {
       setLoading(false);
     }

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/dbconnect';
-import UserModel,{ IUser } from '@/model/User'; // Make sure to import IUser
+import UserModel from '@/model/User'; // Make sure to import IUser
 import { Types } from 'mongoose';
 
 export async function POST(req: Request) {
