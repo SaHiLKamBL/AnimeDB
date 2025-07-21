@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { toast } from 'sonner'
 import Datacard from './Datacard'
 import {
   Pagination,

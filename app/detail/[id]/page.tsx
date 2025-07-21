@@ -53,7 +53,7 @@ const AnimeDetailPage = () => {
   const [anime, setAnime] = useState<AniData | null>(null)
   const [loading, setLoading] = useState(true)
   const params = useParams()
-  let router=useRouter()
+  const router=useRouter()
 
   useEffect(() => {
     const fetchAnimeData = async () => {

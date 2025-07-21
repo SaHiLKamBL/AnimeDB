@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
-import SearchBar from './Search'
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import Link from 'next/link'
 import { useState,useEffect } from 'react'
 import { useSession } from 'next-auth/react'
@@ -10,7 +9,6 @@ import Image from 'next/image'
 
 const Navbar = () => {
       const [user, setUser] = useState<IUser | null>(null)
-      const [loading, setLoading] = useState(true)
       const { data: session } = useSession()
     
       useEffect(() => {
@@ -25,8 +23,6 @@ const Navbar = () => {
             setUser(userData)
           } catch (error) {
             console.error("Error fetching user:", error)
-          } finally {
-            setLoading(false)
           }
         }
     

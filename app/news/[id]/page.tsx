@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '@/components/ui/Navbar'
 import Link from 'next/link'
 import {toast} from 'sonner'
-import { useParams,useRouter } from 'next/navigation'
+import { useParams } from 'next/navigation'
 import axios from 'axios'
 
 interface newsprop{
@@ -22,13 +22,13 @@ interface newsprop{
 }
 
 const page = () => {
-  let[anime,setanime]=useState<newsprop[]>([])
-  let params=useParams()
+  const[anime,setanime]=useState<newsprop[]>([])
+  const params=useParams()
   try {
-    let animeid=params.id
+    const animeid=params.id
     useEffect(()=>{
       async function newsdata(){
-    let res=await axios.get(`https://api.jikan.moe/v4/anime/${animeid}/news`)
+    const res=await axios.get(`https://api.jikan.moe/v4/anime/${animeid}/news`)
         setanime(res.data.data)
         console.log(res.data.data)
       }
@@ -46,10 +46,10 @@ const page = () => {
       <div className='w-full min-h-screen bg-black p-10'>
         <div className='w-full grid grid-cols-3 gap-5'>
           {
-            anime.map((item)=>(
+            anime.map((item,index)=>(
            
              
-                <div className='w-[30vw]  h-[60vh] border border-[#f26168] rounded-2xl flex gap-5 px-2 py-4'>
+                <div key={index} className='w-[30vw]  h-[60vh] border border-[#f26168] rounded-2xl flex gap-5 px-2 py-4'>
           {item.images?.jpg?.image_url ? (
   <img
     src={item.images.jpg.image_url}

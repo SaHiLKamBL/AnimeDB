@@ -1,4 +1,4 @@
-import { formSchema } from "@/schemas/signupschema";
+
 import dbConnect from "@/lib/dbconnect";
 import UserModel from "@/model/User";
 import bycrpt from "bcryptjs";

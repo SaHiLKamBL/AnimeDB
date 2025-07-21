@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { useEffect,useState,useRef } from 'react';
+import { useEffect,useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface DatacardProps {

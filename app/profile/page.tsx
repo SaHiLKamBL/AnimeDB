@@ -141,7 +141,7 @@ const ProfilePage = () => {
             <div className="text-center mt-4">
               <p className="text-xl text-white font-semibold">Favourite Anime</p>
               {user.favouriteAnime.map((anime, index) => (
-                <p className="text-lg text-white">{anime}</p>
+                <p key={index} className="text-lg text-white">{anime}</p>
               ))}
             </div>
           ) : 

@@ -18,10 +18,10 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
-import UserModel from '@/model/User'
+
 import axios from 'axios'
 import { useRouter } from 'next/navigation'
-import dbConnect from '@/lib/dbconnect'
+
 import { useSession } from 'next-auth/react'
 
 

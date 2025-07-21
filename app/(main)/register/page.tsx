@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/form";
 import { formSchema } from '@/schemas/signupschema';
 import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
 import { toast } from 'sonner';
 import axios from 'axios';
 
@@ -21,7 +20,7 @@ import axios from 'axios';
 
 const Page = () => {
 
-  let router = useRouter()
+  const router = useRouter()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -36,7 +35,7 @@ const Page = () => {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
 
-      let response = await axios.post('/api/sign-up', values)
+      const response = await axios.post('/api/sign-up', values)
 
       if (response.status === 200 || response.status === 201) {
         toast.success("You have signed up successfully!");

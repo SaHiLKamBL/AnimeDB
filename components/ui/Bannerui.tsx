@@ -15,7 +15,7 @@ interface prop{
   background:string
 }
 
-const Bannerui: React.FC<prop> = ({image,title,genres,url,score,episodes,year,background}) => {
+const Bannerui: React.FC<prop> = ({image,title,url,score,episodes,year,background}) => {
  
   return (
     <div className="relative w-full h-[70vh] flex items-center justify-center overflow-hidden bg-black border-l-8 border-red-500">

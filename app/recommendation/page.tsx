@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react'
 import Navbar from '@/components/ui/Navbar'
-import Image from 'next/image'
 import axios from 'axios'
 import { toast } from 'sonner'
 import { useRouter } from 'next/navigation'
@@ -30,14 +29,14 @@ interface recomobject {
 }
 
 const Page = () => {
-    let router = useRouter()
+    const router = useRouter()
 
-    let [recom, setrecom] = useState<recomobject[]>([])
+    const [recom, setrecom] = useState<recomobject[]>([])
 
     useEffect(() => {
-        let fetchrecom = async () => {
+        const fetchrecom = async () => {
             try {
-                let res = await axios.get('https://api.jikan.moe/v4/recommendations/anime')
+                const res = await axios.get('https://api.jikan.moe/v4/recommendations/anime')
                 setrecom(res.data.data)
                 
 
@@ -56,7 +55,7 @@ const Page = () => {
             {/* Page background */}
             <div className="w-full  bg-gray-950 px-10 py-6">
                 <div className="flex flex-col justify-evenly w-full gap-5">
-                    {recom.map((item) => {
+                    {recom.map((item,index) => {
                         const anime = item.entry[0];
                         // {
                         //     data:[
@@ -70,7 +69,7 @@ const Page = () => {
                         // }
 
                         return (
-                            <div
+                            <div key={index}
                                 onClick={() => { router.push(`/detail/${anime.mal_id}`) }}
 
                                 className="w-full bg-black text-white rounded-xl p-4 border-2 border-[#f26168] shadow-lg gap-10  flex  justify-start items-center"

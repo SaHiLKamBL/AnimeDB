@@ -42,7 +42,7 @@ const Banner = () => {
   useEffect(() => {
     async function fetchdata() {
       try {
-        let res = await axios.get('https://api.jikan.moe/v4/top/anime?limit=10')
+        const res = await axios.get('https://api.jikan.moe/v4/top/anime?limit=10')
         setData(res.data.data)
       } catch (error) {
         toast.error("Error to fetch Data")
