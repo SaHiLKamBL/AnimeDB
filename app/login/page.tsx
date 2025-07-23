@@ -47,7 +47,7 @@ const Page = () => {
         <div className='w-full h-[15vh] flex justify-center items-center'>
           <p className='text-6xl font-bold text-red-500'>KaizokuDex</p>
         </div>
-        <div className="w-[30vw] h-[50vh] p-8 border-2 border-white rounded-2xl bg-transparent text-white flex flex-col gap-6 shadow-amber-50">
+        <div className="w-[30vw] h-[80vh] p-8 border-2 border-white rounded-2xl bg-transparent text-white flex flex-col gap-6 shadow-amber-50">
           <h2 className="text-4xl text-white font-bold text-center">Login</h2>
           <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-1">

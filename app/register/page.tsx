@@ -53,12 +53,12 @@ const Page = () => {
   return (
     <>
 
-     <div className="w-full h-screen  bg-black pt-10 bg-[url('/loginimage.webp')] bg-center bg-cover">
+     <div className="w-full h-screen  bg-black pt-8 bg-[url('/loginimage.webp')] bg-center bg-cover">
   <div className="w-full justify-center items-center h-40 flex px-20 ">
     <h1 className="text-6xl font-bold text-white">KaizokuDex</h1>
   </div>
-  <div className="w-[30vw] h-auto p-8 border-2 border-white rounded-2xl bg-transparent text-blue-100 flex flex-col gap-6 shadow-green-50 translate-x-1/3">
-        <h2 className="text-4xl text-blue-100 font-bold text-center">Register</h2>
+  <div className="w-[30vw]  p-8 border-2 border-white rounded-2xl bg-transparent text-white flex flex-col gap-6  translate-x-1/3">
+        <h2 className="text-4xl text-white font-bold text-center">Register</h2>
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-4">

@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { useEffect,useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface DatacardProps {
@@ -26,8 +26,8 @@ const Datacard: React.FC<DatacardProps> = ({
   rank,
   genres,
 }) => {
-    const cardRef = useRef<HTMLDivElement>(null);
- 
+  const cardRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const card = cardRef.current;
     if (!card) return;
@@ -58,17 +58,19 @@ const Datacard: React.FC<DatacardProps> = ({
       card.removeEventListener('mouseleave', reset);
     };
   }, []);
-  const router=useRouter()
-  const detail=()=>{
-     router.push(`/detail/${id}`)
-  }
+
+  const router = useRouter();
+  const detail = () => {
+    router.push(`/detail/${id}`);
+  };
 
   return (
-   <div
-  className='tilt-card w-full max-w-[21.52vw] h-[31.15vh] text-white px-2 border border-[#f26168] rounded-2xl flex justify-evenly gap-5 items-center'
-  ref={cardRef} onClick={detail}
->
-   <img
+    <div
+      className='tilt-card w-full max-w-[26vw] h-[31.15vh] text-white px-2 border border-[#f26168] rounded-2xl flex justify-evenly gap-5 items-center'
+      ref={cardRef}
+      onClick={detail}
+    >
+      <img
         src={image}
         alt={title}
         className='w-[12.375vw] h-[29.44vh] object-cover rounded-2xl'

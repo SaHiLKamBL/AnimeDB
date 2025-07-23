@@ -56,7 +56,7 @@ export default function ChatPage() {
 
   return (
     <><Navbar/>
-    <div className=" w-full h-screen flex  items-center justify-center bg-black p-8">
+    <div className=" w-full h-screen flex  items-center justify-center bg-black">
       <div className="w-[60vw] h-[90vh] bg-black text-white p-8 rounded-lg">
         <h1 className="text-center mb-4 text-5xl font-bold text-red-500">Ask AI</h1>
 
