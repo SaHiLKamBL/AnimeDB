@@ -26,7 +26,7 @@ const Page = () => {
       const result = await signIn("credentials", {
         email: data.email,
         password: data.password,
-        redirect: false // manual redirection
+        redirect: false
       });
 
       if (result?.ok) {
@@ -43,11 +43,11 @@ const Page = () => {
 
   return (
     <>
-      <div className='w-full h-screen bg-[url("/login3.jpg")] bg-gray-950 bg-cover bg-center gap-10 flex flex-col px-60 py-20'>
+      <div className='w-full h-screen overflow-y-auto bg-[url("/login3.jpg")] bg-gray-950 bg-cover bg-center flex flex-col items-center gap-10 px-6 py-10'>
         <div className='w-full h-[15vh] flex justify-center items-center'>
           <p className='text-6xl font-bold text-red-500'>KaizokuDex</p>
         </div>
-        <div className="w-[30vw] h-[80vh] p-8 border-2 border-white rounded-2xl bg-transparent text-white flex flex-col gap-6 shadow-amber-50">
+        <div className="w-[30vw] max-h-[80vh] overflow-y-auto p-8 border-2 border-white rounded-2xl bg-transparent text-white flex flex-col gap-6 shadow-amber-50">
           <h2 className="text-4xl text-white font-bold text-center">Login</h2>
           <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-1">
@@ -56,7 +56,7 @@ const Page = () => {
                 type="email"
                 id="email"
                 {...register("email")}
-                className="p-3  rounded-2xl bg-gray-950 border border-red-500 text-white placeholder-white focus:outline-none focus:ring-0 focus:border-red-500"
+                className="p-3 rounded-2xl bg-gray-950 border border-red-500 text-white placeholder-white focus:outline-none focus:ring-0 focus:border-red-500"
                 placeholder="Enter your email"
               />
               {errors.email && (
@@ -92,10 +92,9 @@ const Page = () => {
             >
               Sign In
             </button>
-            <Link href="/register" className="w-full flex justify-center items-center  text-xl font-medium">
-  New here?<span className='text-red-500 hover:text-red-700'> Sign up now</span>
-</Link>
-
+            <Link href="/register" className="w-full flex justify-center items-center text-xl font-medium">
+              New here?<span className='text-red-500 hover:text-red-700'> Sign up now</span>
+            </Link>
           </form>
         </div>
       </div>

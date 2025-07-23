@@ -55,56 +55,56 @@ export default function ChatPage() {
   }
 
   return (
-    <><Navbar/>
-    <div className=" w-full h-screen flex  items-center justify-center bg-black">
-      <div className="w-[60vw] h-[90vh] bg-black text-white p-8 rounded-lg">
-        <h1 className="text-center mb-4 text-5xl font-bold text-red-500">Ask AI</h1>
+    <>
+      <Navbar />
+      <div className="w-full h-screen flex items-center justify-center bg-black">
+        <div className="w-[60vw] h-[90vh] bg-black text-white p-8 rounded-lg flex flex-col">
+          <h1 className="text-center mb-4 text-5xl font-bold text-red-500">Ask AI</h1>
 
-        <div className=" p-4 h-[70vh] overflow-y-auto mb-4 rounded-lg [&::-webkit-scrollbar]:hidden">
-          {messages.length === 0 && <p>Say hi to the assistant!</p>}
+          <div className="flex-1 p-4 overflow-y-auto mb-4 rounded-lg [&::-webkit-scrollbar]:hidden">
+            {messages.length === 0 && <p>Say hi to the assistant!</p>}
 
-          {messages.map((msg, idx) => (
-            <div
-              key={idx}
-              className={`mb-4 flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-            >
+            {messages.map((msg, idx) => (
               <div
-                className={`inline-block px-4 py-2 rounded-2xl max-w-[80%] whitespace-pre-wrap ${
-                  msg.role === 'user'
-                    ? 'bg-black text-white border-2 border-[#f26168] shadow-md  shadow-[#f26168]'
-                    : 'bg-black text-white border-2 border-[#f26168] shadow-md  shadow-[#f26168]'
-                }`}
+                key={idx}
+                className={`mb-4 flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                {msg.content}
+                <div
+                  className={`inline-block px-4 py-2 rounded-2xl max-w-[80%] whitespace-pre-wrap ${
+                    msg.role === 'user'
+                      ? 'bg-black text-white border-2 border-[#f26168] shadow-md shadow-[#f26168]'
+                      : 'bg-black text-white border-2 border-[#f26168] shadow-md shadow-[#f26168]'
+                  }`}
+                >
+                  {msg.content}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {error && <p className="text-red-500 mb-2">Error: {error}</p>}
+
+          <div className="w-full flex gap-5 justify-center items-center">
+            <textarea
+              rows={1}
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleKeyDown}
+              placeholder="Type your message here..."
+              className="w-1/2 p-5 px-10 rounded-2xl bg-white border-2 border-[#f26168] text-black text-2xl font-semibold"
+              disabled={loading}
+            />
+
+            <button
+              onClick={sendMessage}
+              disabled={loading || !input.trim()}
+              className="w-32 h-20 px-4 py-2 bg-red-500 text-white text-2xl font-semibold rounded-md hover:bg-red-700 disabled:opacity-30"
+            >
+              {loading ? 'Sending...' : 'Send'}
+            </button>
+          </div>
         </div>
-
-        {error && <p className="text-red-500 mb-2">Error: {error}</p>}
-    <div className='w-full flex gap-5 justify-center items-center'>
-        <textarea
-          rows={1}
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Type your message here..."
-          className="w-1/2 p-5 px-10 rounded-2xl bg-white border-2 border-[#f26168] text-black text-2xl font-semibold"
-          disabled={loading}
-        />
-
-        <button
-          onClick={sendMessage}
-          disabled={loading || !input.trim()}
-          className=" w-32 h-20 px-4 py-2 bg-red-500 text-white text-2xl font-semibold rounded-md hover:bg-red-700 disabled:opacity-30"
-        >
-          {loading ? 'Sending...' : 'Send'}
-        </button>
-        </div>
-
-
       </div>
-    </div>
     </>
   );
 }
