@@ -58,8 +58,8 @@ const Navbar = () => {
       /></Link>
     ) : (
       <Link href='/profile'>
-      <div className="w-full h-full flex items-center justify-center bg-red-500">
-        <span className="text-2xl font-bold text-white">
+      <div className="w-full h-full flex items-center justify-center bg-black">
+        <span className="text-2xl font-bold text-red">
           {user.username.charAt(0).toUpperCase()}
         </span>
       </div>
