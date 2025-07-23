@@ -72,7 +72,7 @@ const Page = () => {
                             <div key={index}
                                 onClick={() => { router.push(`/detail/${anime.mal_id}`) }}
 
-                                className="w-full bg-black text-white rounded-xl p-4 border-2 border-[#f26168] shadow-lg gap-10  flex  justify-start items-center"
+                                className="w-full h-fit bg-black text-white rounded-xl p-4 border-2 border-[#f26168] shadow-lg gap-10  flex  justify-start items-center"
                             >
 
                                 <img
@@ -94,7 +94,7 @@ const Page = () => {
                                         </span>
                                     </div>
 
-                                    <p className=" mt-3 text-gray-300">{item.content}</p>
+                                    <p className=" mt-2 text-gray-300">{item.content}</p>
                                     </div>
                                 </div>
                             </div>

@@ -132,7 +132,7 @@ const Datacard: React.FC<DatacardProps> = ({
           </div>
         </div>
 
-        <div className='w-fit flex flex-wrap gap-1 mt-2'>
+        <div className='w-fit flex flex-wrap gap-1 mt-1'>
           {genres.slice(0, 2).map((genre, idx) => (
             <div
               key={idx}

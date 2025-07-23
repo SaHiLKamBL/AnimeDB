@@ -48,7 +48,7 @@ const Page = () => {
         <div className="w-full justify-center items-center h-32 flex px-20">
           <h1 className="text-6xl font-bold text-white">KaizokuDex</h1>
         </div>
-        <div className="w-[30vw] max-h-[80vh] overflow-y-auto p-8 border-2 border-white rounded-2xl bg-transparent text-white flex flex-col gap-6">
+        <div className="w-[30vw] max-h-[80vh] overflow-y-auto p-8 border-2 border-white rounded-2xl bg-transparent text-white flex flex-col gap-6  [&::-webkit-scrollbar]:hidden">
           <h2 className="text-4xl text-white font-bold text-center">Register</h2>
 
           <Form {...form}>

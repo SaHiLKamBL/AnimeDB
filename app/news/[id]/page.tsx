@@ -48,9 +48,12 @@ const Page = () => {
     <>
       <Navbar />
       <div className='w-full min-h-screen bg-black p-10'>
-        <div className='w-full grid grid-cols-3 gap-5'>
+        <div className='w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
           {anime.map((item, index) => (
-            <div key={index} className='w-[30vw] h-[60vh] border border-[#f26168] rounded-2xl flex gap-5 px-2 py-4'>
+            <div
+              key={index}
+              className='w-full border border-[#f26168] rounded-2xl flex gap-5 px-2 py-4'
+            >
               {item.images?.jpg?.image_url ? (
                 <img
                   src={item.images.jpg.image_url}
@@ -63,7 +66,7 @@ const Page = () => {
                 </div>
               )}
 
-              <div className='w-[16vw] h-full flex flex-col items-start gap-2'>
+              <div className='w-full max-h-[50vh] overflow-y-auto flex flex-col items-start gap-2 [&::-webkit-scrollbar]:hidden'>
                 <div className='text-2xl font-medium text-white flex gap-2 items-center'>
                   <p className='text-red-500'>Date:</p>
                   <p>{item.date.split('T')[0]}</p>
